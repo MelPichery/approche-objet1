@@ -21,8 +21,8 @@ public class TestAdressePostale {
 		adresse2.codePostal = 75000;
 		adresse2.ville = "Paris";
 		
-		adresse1.afficheAddresse();
-		adresse2.afficheAddresse();
+		adresse1.afficheAdresseComplete();
+		adresse2.afficheAdresseComplete();		
 	}
 
 }
