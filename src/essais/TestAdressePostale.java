@@ -23,6 +23,11 @@ public class TestAdressePostale {
 		
 		adresse1.afficheAdresseComplete();
 		adresse2.afficheAdresseComplete();		
+		
+		AdressePostale adresse3 = new AdressePostale(23,"rue des mouettes",90000,"Mouette");
+		
+		adresse3.afficheAdresseSimple();
+		
 	}
 
 }
