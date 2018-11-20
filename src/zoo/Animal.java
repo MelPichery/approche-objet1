@@ -4,6 +4,7 @@ public class Animal {
 
 	private String nom;
 	private String type;
+	private Zone zone;
 	
 	
 	public Animal(String nom, String type) {
@@ -12,6 +13,16 @@ public class Animal {
 		this.type = type;
 		
 	}
+
+	
+
+	public Animal(String nom, String type, Zone zone) {
+		super();
+		this.nom = nom;
+		this.type = type;
+		this.zone = zone;
+	}
+
 
 
 	public String getNom() {
@@ -33,5 +44,14 @@ public class Animal {
 		this.type = type;
 	}
 		
+	public Zone getZone() {
+		return zone;
+	}
+
+
+	public void setZone(Zone zone) {
+		this.zone = zone;
+	}
+
 	
 }
