@@ -1,28 +1,22 @@
 package zoo;
 
-public class Animal {
+public abstract class Animal {
 
-	private String nom;
-	private String type;
-	private Zone zone;
-	
-	
-	public Animal(String nom, String type) {
-
-		this.nom = nom;
-		this.type = type;
+	protected String nom = null;
+	protected String type = null;
+	protected String regimeAlimentaire = null;
 		
-	}
-
+	public static final String ALIMENT_CARNIVORE = "Carnivore";
+	public static final String ALIMENT_HERBIVORE = "Herbivore";
+	public static final String ALIMENT_OMNIVORE = "Omnivore";
 	
-
-	public Animal(String nom, String type, Zone zone) {
+	
+	public Animal(String nom, String type, String regimeAlimentaire) {
 		super();
 		this.nom = nom;
 		this.type = type;
-		this.zone = zone;
+		this.regimeAlimentaire = regimeAlimentaire;
 	}
-
 
 
 	public String getNom() {
@@ -44,13 +38,19 @@ public class Animal {
 		this.type = type;
 	}
 		
-	public Zone getZone() {
-		return zone;
+
+	public String getRegimeAlimentaire() {
+		return regimeAlimentaire;
 	}
 
 
-	public void setZone(Zone zone) {
-		this.zone = zone;
+	public void setRegimeAlimentaire(String regimeAlimentaire) {
+		this.regimeAlimentaire = regimeAlimentaire;
+	}
+	
+	@Override
+	public String toString() {
+		return "Animal [nom=" + nom + ", type=" + type + ", regimeAlimentaire=" + regimeAlimentaire + "]";
 	}
 
 	

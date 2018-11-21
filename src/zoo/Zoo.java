@@ -1,25 +1,28 @@
 package zoo;
 
+import java.util.Arrays;
+
 public class Zoo {
 
-	private String nom;
-	private Zone[] zones;
+
+	private static Zone[] zones= new Zone[4];
 	
-	public Zoo(String nom, Zone[] zones) {
+	public static final int INDICE_ZONE_CARNIVORE = 0;
+	public static final int INDICE_SAVANE_AFRICAINE = 1;
+	public static final int INDICE_FERME_REPTILE = 2;
+	public static final int INDICE_AQUARIUM = 3 ;
+	
+	
+	public Zoo() {
 		super();
-		this.nom = nom;
-		this.zones = zones;
+
+		zones[INDICE_ZONE_CARNIVORE] = new Zone("Carnivore");
+		zones[INDICE_SAVANE_AFRICAINE] = new Zone("Savane Africaine");
+		zones[INDICE_FERME_REPTILE] = new Zone("Ferme Reptile");
+		zones[INDICE_AQUARIUM] = new Zone("Aquarium");
 	}
 
-	public String getNom() {
-		return nom;
-	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	
 	public Zone[] getZones() {
 		return zones;
 	}
@@ -28,6 +31,44 @@ public class Zoo {
 		this.zones = zones;
 	}
 	
+	public static void addAnimalToZone(Animal animal) {
+		
+		if (animal instanceof Mammifere ) {
+			
+			if(animal.getRegimeAlimentaire().equals(Animal.ALIMENT_CARNIVORE)) {
+	
+				zones[INDICE_ZONE_CARNIVORE].addAnimal(animal);
+				
+			}
+			
+			if (animal.getRegimeAlimentaire().equals(Animal.ALIMENT_HERBIVORE)) {
+				
+				zones[INDICE_SAVANE_AFRICAINE].addAnimal(animal);
+				
+			}
+			
+
+		}
+		
+		if (animal instanceof Reptile) {
+			
+			zones[INDICE_FERME_REPTILE].addAnimal(animal);
+		}
+		
+		if (animal instanceof Poisson) {
+			
+			zones[INDICE_AQUARIUM].addAnimal(animal);
+			
+		}
+		
+		
+	}
+
+
+	@Override
+	public String toString() {
+		return "Zoo [" + Arrays.toString(zones) +"\n"+ "]";
+	}
 	
 	
 }
