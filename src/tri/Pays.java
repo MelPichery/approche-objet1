@@ -1,22 +1,22 @@
-package sets;
+package tri;
 
-public class Pays {
+public class Pays implements Comparable<Pays> {
 
 	//attributs
 	private String nom = null;
-	private int nbreHabitants = 0;
+	private Integer nbreHabitants = 0;
 	private Double pibParHabitant = null;
 	
+	public Pays() {
+		
+	}
+	
 	//constructeur
-	public Pays(String nom, int nbreHabitants, Double pibParHabitant) {
+	public Pays(String nom, Integer nbreHabitants, Double pibParHabitant) {
 		super();
 		this.nom = nom;
 		this.nbreHabitants = nbreHabitants;
 		this.pibParHabitant = pibParHabitant;
-	}
-
-	public Pays() {
-		// TODO Auto-generated constructor stub
 	}
 
 	//getters et setters
@@ -30,12 +30,12 @@ public class Pays {
 	}
 
 
-	public int getNbreHabitants() {
+	public Integer getNbreHabitants() {
 		return nbreHabitants;
 	}
 
 
-	public void setNbreHabitants(int nbreHabitants) {
+	public void setNbreHabitants(Integer nbreHabitants) {
 		this.nbreHabitants = nbreHabitants;
 	}
 
@@ -53,6 +53,13 @@ public class Pays {
 	@Override
 	public String toString() {
 		return "Pays [nom=" + nom + ", nbreHabitants=" + nbreHabitants + ", pibParHabitant=" + pibParHabitant + "]\n";
+	}
+
+	//implémentation de l'interface comparable avec un tri sur le pib/habitant
+	@Override
+	public int compareTo(Pays o) {
+		
+		return this.pibParHabitant.compareTo(o.getPibParHabitant());
 	}
 	
 	
